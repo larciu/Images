@@ -17,9 +17,9 @@ class ImageBase64Controller extends Controller
     #não importar quantas tags imgs tenham, elas serão modificadas e upadas.
     #passe por parametros os arrays com os htmls e também o nome dos campos que contém esse html bem.
     #como parametros opcional, temos o nome da pasta onde esse binário, como default questoes
-    public static function uploads64FromString ($request, $camposImagens, $path="questoes") {
+    public static function uploads64FromString ($htmls, $camposImagens, $path="questoes") {
         foreach ($camposImagens as $camposImagen){
-            $d = $request[$camposImagen];
+            $d = $htmls[$camposImagen];
             if (!$d){
                 continue;
             }
@@ -39,11 +39,11 @@ class ImageBase64Controller extends Controller
 
                 Storage::put( "\public\\$path\\$data_atual". $nameFile, base64_decode($imagem_atual));
 
-                $request[$camposImagen] = str_replace($img, $caminhoArquivo, $d);
+                $htmls[$camposImagen] = str_replace($img, $caminhoArquivo, $d);
 
             }
         }
 
-        return $request;
+        return $htmls;
     }
 }
