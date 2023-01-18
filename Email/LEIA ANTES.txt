@@ -1,0 +1,17 @@
+Alguns observações tem que ser salientadas:
+
+O email do emitente, caso não seja especificado, vai ser o padrão da variável de ambiente MAIL_FROM_ADDRESS. Exemplo: 
+MAIL_FROM_ADDRESS=teste@seduc.ro.gov.br
+
+O nome do emitente, caso não seja especificado, vai ser o padrão da variável de ambiente MAIL_FROM_NAME. Exemplo:
+MAIL_FROM_NAME="Revisa Mais"
+
+As informações das configurações do mensageiro (SendGrid, Send blue...) tem que ser feita no arquivo .env. Exemplo:
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.sendgrid.net
+MAIL_PORT=587
+MAIL_USERNAME=teste
+MAIL_PASSWORD=123
+
+Exemplo de chamada da função mensageira:
+Mail::to('teste@gmail.com')->queue(new Email('Janjan'));
