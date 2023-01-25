@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class GenerateCodeController extends Controller
 {
-    #função que recebe um intervalo de valores NÚMERICO  e retorna um array com numeros aleatórios sorteados
+    #função que recebe um intervalo de valores NÚMERICOS  e retorna um array com numeros aleatórios sorteados
     #o excepts são as exceções desse intervalo que não fará parte do sorteio
     # amount é a quantidade de números sorteados que se quer obter
     public static function generateCodeNumber ($start, $end, $excepts = [], $amount = 1){
